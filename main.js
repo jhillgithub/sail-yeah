@@ -201,28 +201,28 @@ function init() {
 
   window.addEventListener('keydown', function (e) {
 
-    if (e.key === "ArrowUp") {
+    if (e.key === "w" || e.key === "ArrowUp") {
       raft.speed.vel = -1;
     }
 
-    if (e.key === "ArrowDown") {
+    if (e.key === "s" || e.key === "ArrowDown") {
       raft.speed.vel = 1;
     }
 
-    if (e.key === "ArrowLeft") {
+    if (e.key === "a" || e.key === "ArrowLeft") {
       raft.speed.rot = 0.025;
     }
 
-    if (e.key === "ArrowRight") {
+    if (e.key === "d" || e.key === "ArrowRight") {
       raft.speed.rot = -0.025;
     }
   });
 
   window.addEventListener('keyup', function (e) {
-    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+    if (e.key === "w" || e.key === "s" || e.key === "ArrowUp" || e.key === "ArrowDown") {
       raft.stopVelocity();
     }
-    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    if (e.key === "a" || e.key === "d" || e.key === "ArrowLeft" || e.key === "ArrowRight") {
       raft.stopRotation();
     }
 
