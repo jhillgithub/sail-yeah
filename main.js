@@ -27,7 +27,8 @@ class Raft {
     loader.load(raftUrl, (gltf) => {
       scene.add(gltf.scene);
       gltf.scene.scale.set(0.05, 0.05, 0.05);
-      gltf.scene.rotation.y = -1.5;
+
+      gltf.scene.rotation.y = camera.rotation.y - Math.PI / 2;
 
       this.raft = gltf.scene;
       this.speed = {
