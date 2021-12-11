@@ -12,6 +12,8 @@ import waternormalsUrl from './assets/waternormals.jpg?url';
 
 let camera, scene, renderer;
 let controls, water, sun;
+const clock = new THREE.Clock();
+let previousTime = 0;
 
 const loader = new GLTFLoader();
 
@@ -68,8 +70,26 @@ class Shark {
       gltf.scene.rotation.y = 1;
       gltf.scene.rotation.z = -.2;
 
+      console.log(gltf);
+
+      const mixer = new THREE.AnimationMixer(gltf.scene);
+      const action = mixer.clipAction(gltf.animations[0]);
+      action.play();
+      this.mixer = mixer;
+      this.action = action;
+
       this.shark = gltf.scene;
     });
+  }
+
+  update(deltaTime) {
+    if (this.shark) {
+      this.mixer.update(deltaTime);
+    }
+  }
+
+  stopAnimation() {
+    this.action.stop();
   }
 }
 
@@ -229,11 +249,18 @@ function isColliding(obj1, obj2) {
   );
 }
 
+
+
 function animate() {
+
+  const elapsedTime = clock.getElapsedTime();
+  const deltaTime = elapsedTime - previousTime;
+  previousTime = elapsedTime;
 
   requestAnimationFrame(animate);
   render();
   raft.update();
+  shark.update(deltaTime);
   if (raft.raft && shark.shark) {
     if (isColliding(raft.raft, shark.shark)) {
       console.log("Boom! Shark Exploded!");
