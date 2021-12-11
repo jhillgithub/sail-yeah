@@ -6,8 +6,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Water } from 'three/examples/jsm/objects/Water.js';
 import { Sky } from 'three/examples/jsm/objects/Sky.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import raftUrl from './assets/raft/scene.gltf?url';
-import sharkUrl from './assets/shark/scene.gltf?url';
+import raftUrl from './assets/models/raft.glb';
+import sharkUrl from './assets/models/shark.glb';
 import waternormalsUrl from './assets/waternormals.jpg?url';
 
 let camera, scene, renderer;
