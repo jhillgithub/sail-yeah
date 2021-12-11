@@ -19,7 +19,7 @@ class Raft {
     /**
      * "Raft" (https://skfb.ly/6GATS) by _SeF_ is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
      */
-    loader.load('/assets/raft/scene.gltf', (gltf) => {
+    loader.load('assets/raft/scene.gltf', (gltf) => {
       scene.add(gltf.scene);
       gltf.scene.scale.set(0.05, 0.05, 0.05);
       gltf.scene.rotation.y = -1.5;
@@ -58,7 +58,7 @@ const raft = new Raft();
 
 class Shark {
   constructor() {
-    loader.load('/assets/shark/scene.gltf', (gltf) => {
+    loader.load('assets/shark/scene.gltf', (gltf) => {
       scene.add(gltf.scene);
       gltf.scene.scale.set(0.075, 0.075, 0.075);
       gltf.scene.position.set(30, -3, -30);
