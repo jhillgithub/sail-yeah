@@ -28,7 +28,7 @@ class Raft {
       scene.add(gltf.scene);
       gltf.scene.scale.set(0.05, 0.05, 0.05);
 
-      gltf.scene.rotation.y = camera.rotation.y - Math.PI / 2;
+      gltf.scene.rotation.y = -1.5;
 
       this.raft = gltf.scene;
       this.speed = {
