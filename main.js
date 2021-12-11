@@ -6,6 +6,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Water } from 'three/examples/jsm/objects/Water.js';
 import { Sky } from 'three/examples/jsm/objects/Sky.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import raftUrl from './assets/raft/scene.gltf?url';
+import sharkUrl from './assets/shark/scene.gltf?url';
+import waternormalsUrl from './assets/waternormals.jpg?url';
 
 let camera, scene, renderer;
 let controls, water, sun;
@@ -19,7 +22,7 @@ class Raft {
     /**
      * "Raft" (https://skfb.ly/6GATS) by _SeF_ is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
      */
-    loader.load('assets/raft/scene.gltf', (gltf) => {
+    loader.load(raftUrl, (gltf) => {
       scene.add(gltf.scene);
       gltf.scene.scale.set(0.05, 0.05, 0.05);
       gltf.scene.rotation.y = -1.5;
@@ -58,7 +61,7 @@ const raft = new Raft();
 
 class Shark {
   constructor() {
-    loader.load('assets/shark/scene.gltf', (gltf) => {
+    loader.load(sharkUrl, (gltf) => {
       scene.add(gltf.scene);
       gltf.scene.scale.set(0.075, 0.075, 0.075);
       gltf.scene.position.set(30, -3, -30);
@@ -107,7 +110,7 @@ function init() {
     {
       textureWidth: 512,
       textureHeight: 512,
-      waterNormals: new THREE.TextureLoader().load('assets/waternormals.jpg', function (texture) {
+      waterNormals: new THREE.TextureLoader().load(waternormalsUrl, function (texture) {
 
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
